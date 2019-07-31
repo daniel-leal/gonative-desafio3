@@ -1,10 +1,18 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+
+import '~/config/ReactotronConfig';
+import '~/config/DevToolsConfig';
+
+import { Provider } from 'react-redux';
+import store from './store';
+
+import Routes from './routes';
+import { setNavigator } from './services/navigation';
 
 const App = () => (
-  <View>
-    <Text>Hello App</Text>
-  </View>
+  <Provider store={store}>
+    <Routes ref={setNavigator} />
+  </Provider>
 );
 
 export default App;
